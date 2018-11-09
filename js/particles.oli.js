@@ -1,104 +1,110 @@
 $(function () {
 
-    particlesJS("particles-oli-wrapper",{
-        "particles":{
-           "number":{
-              "value":6,
-              "density":{
+    particlesJS("particles-oli-wrapper", {  
+        "particles":{  
+           "number":{  
+              "value":160,
+              "density":{  
                  "enable":true,
                  "value_area":800
               }
            },
-           "color":{
-              "value":"#1b1e34"
+           "color":{  
+              "value":"#11eeff"
            },
-           "shape":{
-              "type":"polygon",
-              "stroke":{
+           "shape":{  
+              "type":"circle",
+              
+              "stroke":{  
                  "width":0,
-                 "color":"#000"
+                 "color":"white"
               },
-              "polygon":{
-                 "nb_sides":6
+              "polygon":{  
+                 "nb_sides":5
+              },
+              "image":{  
+                 "src":"img/github.svg",
+                 "width":100,
+                 "height":100
               }
            },
-           "opacity":{
-              "value":0.3,
+           "opacity":{  
+              "value":1,
               "random":true,
-              "anim":{
-                 "enable":false,
-                 "speed":1,
-                 "opacity_min":0.1,
-                 "sync":false
-              }
-           },
-           "size":{
-              "value":160,
-              "random":false,
-              "anim":{
+              "anim":{  
                  "enable":true,
-                 "speed":10,
-                 "size_min":40,
+                 "speed":1,
+                 "opacity_min":0,
                  "sync":false
               }
            },
-           "line_linked":{
-              "enable":false,
-              "distance":200,
-              "color":"#ffffff",
-              "opacity":1,
-              "width":2
+           "size":{  
+              "value":3,
+              "random":true,
+              "anim":{  
+                 "enable":false,
+                 "speed":4,
+                 "size_min":0.3,
+                 "sync":false
+              }
            },
-           "move":{
+           "line_linked":{  
+              "enable":false,
+              "distance":150,
+              "color":"#ffffff",
+              "opacity":0.4,
+              "width":1
+           },
+           "move":{  
               "enable":true,
-              "speed":8,
+              "speed":1,
               "direction":"none",
-              "random":false,
+              "random":true,
               "straight":false,
               "out_mode":"out",
               "bounce":false,
-              "attract":{
+              "attract":{  
                  "enable":false,
                  "rotateX":600,
-                 "rotateY":1200
+                 "rotateY":600
               }
            }
         },
-        "interactivity":{
+        "interactivity":{  
            "detect_on":"canvas",
-           "events":{
-              "onhover":{
+           "events":{  
+              "onhover":{  
                  "enable":false,
-                 "mode":"grab"
+                 "mode":"bubble"
               },
-              "onclick":{
+              "onclick":{  
                  "enable":false,
-                 "mode":"push"
+                 "mode":"repulse"
               },
               "resize":true
            },
-           "modes":{
-              "grab":{
+           "modes":{  
+              "grab":{  
                  "distance":400,
-                 "line_linked":{
+                 "line_linked":{  
                     "opacity":1
                  }
               },
-              "bubble":{
-                 "distance":400,
-                 "size":40,
+              "bubble":{  
+                 "distance":20,
+                 "size":0,
                  "duration":2,
-                 "opacity":8,
+                 "opacity":0,
                  "speed":3
               },
-              "repulse":{
-                 "distance":200,
+              "repulse":{  
+                 "distance":400,
                  "duration":0.4
               },
-              "push":{
+              "push":{  
                  "particles_nb":4
               },
-              "remove":{
+              "remove":{  
                  "particles_nb":2
               }
            }
