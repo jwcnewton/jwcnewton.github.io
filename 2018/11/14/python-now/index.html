@@ -8,16 +8,16 @@
 </li>
 </ul>
 <p>If you are just writing proof of concepts this can be off-putting and will end up just slowing you down.</p>
-<h2 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h2><p>Now is a serverless deployment platform that removes confusing configuration files making deployments easy.</p>
+<h2 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h2><p>Now is a serverless deployment platform that removes hefty configuration files in favour of small functions.</p>
 <p><strong>Why serverless?</strong></p>
 <p>No servers to manage, configure, scale, operate and monitor = Less headaches.</p>
-<p><strong>How much?</strong></p>
-<p>It’s free.</p>
+<p><strong>How much does it cost?</strong></p>
+<p>It’s free mostly.</p>
 <p><strong>Where does Now deploy my code?</strong></p>
-<p>Azure, AWS, GCP but depends where you are Now will always try and match your region.</p>
-<h2 id="Now-CLI"><a href="#Now-CLI" class="headerlink" title="Now CLI"></a>Now CLI</h2><p><a href="https://zeit.co/download#now-cli" target="_blank" rel="noopener">Installing</a> Now</p>
+<p>Azure, AWS and GCP but depends where you are Now will always try and match your region.</p>
+<h2 id="Installing-now"><a href="#Installing-now" class="headerlink" title="Installing now"></a>Installing now</h2><p><a href="https://zeit.co/download#now-cli" target="_blank" rel="noopener">Installing</a> Now</p>
 <p><a href="https://zeit.co/signup" target="_blank" rel="noopener">Register</a> Now </p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>In our example we create a Python file <code>index.py</code> at the root of our application. This takes any <code>get</code> request to our function and returns a response of type <code>text/html</code>.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>In this example we create a Python file <code>index.py</code> at the root of our application. This takes any <code>get</code> request to our function and returns a response of type <code>text/html</code>.</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> http.server <span class="keyword">import</span> BaseHTTPRequestHandler</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">handler</span><span class="params">(BaseHTTPRequestHandler)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_HEAD</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.send_response(<span class="number">200</span>)</span><br><span class="line">        self.send_header(<span class="string">'Content-type'</span>,<span class="string">'text/html'</span>)</span><br><span class="line">        self.end_headers()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_GET</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.do_HEAD()</span><br><span class="line">        message = <span class="string">"&lt;h1&gt;Jam&lt;/h1&gt;"</span></span><br><span class="line">        self.wfile.write(message.encode())</span><br><span class="line">        <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
 <p>We then define our config file <code>now.json</code> at the root of our application. We tell the Now builder to use the Python interpreter for all files ending in <code>.py</code>.</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">"builds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"*.py"</span>,</span><br><span class="line">      <span class="attr">"use"</span>: <span class="string">"@now/python"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -25,5 +25,10 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandas=<span class="number">0.20</span><span class="number">.3</span></span><br></pre></td></tr></table></figure>
 <p>Now let Now… do the magic!</p>
 <p><img src="https://media.giphy.com/media/1nbW2Ce4XgeuKkyjZ2/giphy.gif" width="100%" height="100%"></p>
-<p>Now has built and deployed our application we can access it <a href="https://basiclanding-55w5sc3ew.now.sh/" target="_blank" rel="noopener">Here</a>.</p>
+<p>Now has built and deployed our application we can access it <a href="https://basiclanding-55w5sc3ew.now.sh/" target="_blank" rel="noopener">here</a>.</p>
+<p>This is impressive given how little code has been written and how quick we can get going, hopefully taking the confusion out of deploying Python applications.</p>
+<p><img src="/images/python-now-2018-11-18.png" width="100%" height="100%"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://zeit.co/docs/api/v2" target="_blank" rel="noopener">Docs</a></p>
+<p><a href="https://github.com/zeit/now-cli" target="_blank" rel="noopener">Now Cli</a></p>
+<p><a href="https://docs.python.org/2/library/simplehttpserver.html" target="_blank" rel="noopener">SimpleRequestHandler</a></p>
 </div></header><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a class="post__tag__link" href="/tags/Python/">Python</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/Now/">Now</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/Deployments/">Deployments</a></li></ul></footer></article></main><footer class="foot"><div class="foot-copy">&copy; 2018 Jonathan Newton</div></footer><script src="/js/scroller.js"></script><script src="/js/main.js"></script></body></html>
